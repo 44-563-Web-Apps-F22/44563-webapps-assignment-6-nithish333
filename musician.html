@@ -7,7 +7,7 @@
 <body>
 <h1>Musician guess by Nithish Kommineni</h1>
 <h2>Getting input</h2>
-
+<form>
 <label for="SecretMusician">Enter the secret musician name </label>
     <input type ="password" id="SecretMusician" name="SecretMusician" min=10 max=50 step=2 value="John Lennon"> <br>
 
@@ -18,8 +18,13 @@
 </form>
 <p id="result">This text will be replaced </p>
 
+<div class="imageContainer" >
+    <img src="K.jpg" alt="Image" onclick="swapImage()" id="image" style="width: 100px; height:100px;" >
+</div>
 <script> 
     correct=0;
+    
+let useImage=1;
     wrong=0;
     function checkGuess(){
         console.log("Check the guess")
@@ -35,6 +40,29 @@
        }
         
         result.innerHTML="Correct guess: "+correct+"Wrong guess: "+wrong
+}
+
+
+
+function swapImage(){
+
+    
+useImage>2?useImage=1:useImage+=1;
+ 
+ switch(useImage){
+     case 1: 
+     document.getElementById("image").src = "./K.jpg";
+
+     break;
+     case 2:
+     document.getElementById("image").src="./n.jpg";
+         break;
+     case 3:
+     document.getElementById("image").src="./o.jpg";
+          break;
+      default: 
+      document.getElementById("image").src="K.jpg";
+ }
 }
     </script>
 </body>
